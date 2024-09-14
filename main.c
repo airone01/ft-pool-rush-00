@@ -10,33 +10,57 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <limits.h>
+#include <unistd.h>
 
 void	ft_putchar(char c);
 void	rush(int x, int y);
 
-int	main(void)
-// int	main(int argc, char **argv)
+int	ft_is_numeric(char c)
 {
-	// char	*arg_1;
-	// char	*arg_2;
-	// int	x;
-	// int	y;
-	// if (argc < 3)
-	// {
-	// 	write (1, "Usage: rush <x> <y>", 19);
-	// 	return (1);
-	// }
-	// if (x > 46340 || y > 46340)
-	// {
-	// 	write (1, "Un de vos arguments est trop grand. Veuillez utiliser des valeurs plus petites.", 77);
-	// 	return (1);
-	// }
-	// arg_1 = argv[1];
-	// arg_2 = argv[2];
-	// ATOI HERE
-	// rush(x, y);
-	rush(5, 3);
+	if (c >= '0' && c <= '9')
+		return (1);
 	return (0);
+}
+
+int	my_atoi(char *str)
+{
+	int	count;
+
+	count = 0;
+	while (!(*str >= '0' && *str <= '9') && *str != '\0')
+		str++;
+	while ((*str >= '0' && *str <= '9') && *str != '\0')
+	{
+		count = (count * 10) + (*str - '0');
+		str++;
+	}
+	return (count);
+}
+
+int	main(int argc, char **argv)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	if (argc != 3)
+	{
+		write (1, "Usage: rush <x> <y>\n", 20);
+		return (1);
+	}
+	x = my_atoi(argv[1]);
+	y = my_atoi(argv[2]);
+	if (argv[2][0] == '-')
+		y = -y;
+	if (x == 0 || y == 0)
+		write (1, "Un de vos parametres n'est pas un nombre.\n", 42);
+	if (x > 46340 || y > 46340)
+	{
+		write (1, "Un de vos arguments est trop grand.\n", 34);
+		write (1, "Veuillez utiliser des valeurs plus petites.\n", 44);
+	}
+	if ((x > 46340 || y > 46340) || (x == 0 || y == 0))
+		return (1);
+	rush(x, y);
 }

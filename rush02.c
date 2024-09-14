@@ -12,40 +12,6 @@
 
 void	ft_putchar(char c);
 
-int	ft_is_numeric(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int	my_atoi(char *str)
-{
-	int	count;
-	int	mult;
-
-	mult = 1;
-	count = 0;
-	while (!(((*str >= '0') && (*str <= '9')) || (*str == '-')))
-		str++;
-	while (*str != '\0')
-	{
-		if (ft_is_numeric(*str))
-			count = (count * 10) + (*str - '0');
-		else if (*str != '-')
-			return (count * mult);
-		else if (*str == '-')
-		{
-			if (mult == 1)
-				mult = -1;
-			else if (mult == -1)
-				mult = 1;
-		}
-		str++;
-	}
-	return (count * mult);
-}
-
 void	pt_corner(int y, int inv_y, int line)
 {
 	if ((inv_y == 0) && (line == 0))
