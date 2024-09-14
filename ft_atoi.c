@@ -21,24 +21,18 @@ int	ft_is_numeric(char c)
 
 int	my_atoi(char *str)
 {
-	int	state;
 	int	count;
 	int	mult;
 
 	mult = 1;
-	state = 0;
 	count = 0;
-	while ((*str < '0') && (*str > '9'))
+	while (!(((*str >= '0') && (*str <= '9')) || (*str == '-')))
 		str++;
 	while (*str != '\0')
 	{
 		if (ft_is_numeric(*str))
-		{
-			if (state == 0)
-				state = 1;
 			count = (count * 10) + (*str - '0');
-		}
-		else if (*str != '-' && state == 1)
+		else if (*str != '-')
 			return (count * mult);
 		else if (*str == '-')
 		{
