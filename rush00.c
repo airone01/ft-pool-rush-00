@@ -1,15 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elagouch <erwann.lagouche@gmail.com>       +#+  +:+       +#+        */
+/*   By: cafavier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 14:54:59 by elagouch          #+#    #+#             */
-/*   Updated: 2024/09/14 16:57:46 by cafavier         ###   ########.fr       */
+/*   Created: 2024/09/14 17:44:09 by cafavier          #+#    #+#             */
+/*   Updated: 2024/09/14 17:50:09 by cafavier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 void	ft_putchar(char c);
 
 //Prints the characters that are in the corners
@@ -17,13 +16,13 @@ void	ft_putchar(char c);
 void	pt_corner(int y, int inv_y, int line)
 {
 	if ((inv_y == 0) && (line == 0))
-		ft_putchar ('A');
+		ft_putchar ('o');
 	else if ((inv_y == 1) && (line == y - 1))
-		ft_putchar ('A');
+		ft_putchar ('o');
 	else if ((inv_y == 0) && (line == y - 1))
-		ft_putchar ('C');
+		ft_putchar ('o');
 	else if ((inv_y == 1) && (line == 0))
-		ft_putchar ('C');
+		ft_putchar ('o');
 }
 
 //Define what the ft_putchar function will print
@@ -39,12 +38,12 @@ void	pt_line(int x, int y, int inv_y, int i)
 		if (col == 0 || col == x - 1)
 			pt_corner (y, inv_y, line);
 		else
-			ft_putchar ('B');
+			ft_putchar ('-');
 	}
 	else
 	{
 		if (col == 0 || col == x - 1)
-			ft_putchar ('B');
+			ft_putchar ('|');
 		else
 			ft_putchar (' ');
 	}
