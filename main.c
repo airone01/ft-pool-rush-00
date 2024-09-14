@@ -6,7 +6,7 @@
 /*   By: cafavier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 08:19:40 by cafavier          #+#    #+#             */
-/*   Updated: 2024/09/14 14:05:35 by cafavier         ###   ########.fr       */
+/*   Updated: 2024/09/14 15:00:00 by elagouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,69 +39,4 @@ int	main(void)
 	// rush(x, y);
 	rush(5, 3);
 	return (0);
-}
-
-void	pt_corner(int y, int inv_y, int line)
-{
-	if ((inv_y == 0) && (line == 0))
-		ft_putchar ('A');
-	else if ((inv_y == 1) && (line == y - 1))
-		ft_putchar ('A');
-	else if ((inv_y == 0) && (line == y - 1))
-		ft_putchar ('C');
-	else if ((inv_y == 1) && (line == 0))
-		ft_putchar ('C');
-}
-
-void	pt_line(int x, int y, int inv_y, int i)
-{
-	int	col;
-	//int	inv_z;
-	int	line;
-
-	col = i % x;
-	line = i / x;
-	// Si c'est la PREMIERE OU DERNIERE LIGNE
-	if (line == 0 || line == y - 1)
-	{
-		// Si c'est un coin
-		if (col == 0 || col == x - 1)
-			pt_corner (y, inv_y, line);
-		else
-			ft_putchar ('B');
-	}
-	else
-	{
-		// Si c'est la PREMIERE OU DERNIERE COLONNE
-		if (col == 0 || col == x - 1)
-			ft_putchar ('B');
-		else
-			ft_putchar (' ');
-	}
-}
-
-void	rush(int x, int y)
-{
-	int	i;
-	int	col;
-	int	inv_y;
-
-	inv_y = 0;
-	if (x < 0)
-		x = -x;
-	if (y < 0)
-	{
-		inv_y = 1;
-		y = -y;
-	}
-	i = 0;
-	while (i < (x * y))
-	{
-		col = i % x;
-	//	line = i / x;
-		pt_line (x, y, inv_y, i);
-		if (col >= x - 1)
-			ft_putchar ('\n');
-		i++;
-	}
 }
