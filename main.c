@@ -6,15 +6,14 @@
 /*   By: cafavier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 08:19:40 by cafavier          #+#    #+#             */
-/*   Updated: 2024/09/14 13:14:11 by cafavier         ###   ########.fr       */
+/*   Updated: 2024/09/14 14:05:35 by cafavier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_putchar.c"
-//#include "rush02.c"
 #include <stdio.h>
 #include <limits.h>
 
+void	ft_putchar(char c);
 void	rush(int x, int y);
 
 int	main(void)
@@ -57,7 +56,7 @@ void	pt_corner(int y, int inv_y, int line)
 void	pt_line(int x, int y, int inv_y, int i)
 {
 	int	col;
-	int	inv_z;
+	//int	inv_z;
 	int	line;
 
 	col = i % x;
