@@ -39,6 +39,27 @@ int	my_atoi(char *str)
 	return (count);
 }
 
+int	check_xy(int x, int y, char **argv)
+{
+	if (x == 0 || y == 0)
+	{
+		write (1, "L'un de vos arguments n'est pas valable.\n", 41);
+		return (1);
+	}
+	if (argv[1][0] == '-' || argv[2][0] == '-')
+	{
+		write(1, "Le programme ne supporte pas les arguments negatifs.\n", 53);
+		return (1);
+	}
+	if (x > 46340 || y > 46340)
+	{
+		write (1, "Un de vos arguments est trop grand.\n", 34);
+		write (1, "Veuillez utiliser des valeurs plus petites.\n", 44);
+		return (1);
+	}
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	int	x;
@@ -53,16 +74,7 @@ int	main(int argc, char **argv)
 	}
 	x = my_atoi(argv[1]);
 	y = my_atoi(argv[2]);
-	if (argv[2][0] == '-')
-		y = -y;
-	if (x == 0 || y == 0)
-		write (1, "L'un de vos arguments n'est pas valable.\n", 41);
-	if (x > 46340 || y > 46340)
-	{
-		write (1, "Un de vos arguments est trop grand.\n", 34);
-		write (1, "Veuillez utiliser des valeurs plus petites.\n", 44);
-	}
-	if ((x > 46340 || y > 46340) || (x == 0 || y == 0))
+	if (check_xy(x, y, argv))
 		return (1);
 	rush(x, y);
 }
