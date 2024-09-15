@@ -6,7 +6,7 @@
 /*   By: cafavier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 08:19:40 by cafavier          #+#    #+#             */
-/*   Updated: 2024/09/14 18:29:55 by cafavier         ###   ########.fr       */
+/*   Updated: 2024/09/15 14:18:06 by gaducurt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 	if (argv[2][0] == '-')
 		y = -y;
 	if (x == 0 || y == 0)
-		write (1, "Un de vos parametres n'est pas un nombre.\n", 42);
+		write (1, "L'un de vos arguments n'est pas valable.\n", 41);
 	if (x > 46340 || y > 46340)
 	{
 		write (1, "Un de vos arguments est trop grand.\n", 34);
